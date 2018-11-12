@@ -23,9 +23,13 @@ public class LoginTest {
         File file= new File("C:/drivers/chromedriver.exe");
         System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
        ChromeDriver driver = new ChromeDriver();
+       mainPage=new MainPage(driver);
+       loginPage=new LoginPage(driver);
+       accSettingsPage=new AccountSettingsPage(driver);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("https://www.brixx.com/");
+
     }
 
     @Test
@@ -38,9 +42,9 @@ public class LoginTest {
         accSettingsPage.ClickLogin();
     }
 
-    @AfterClass
+    /*@AfterClass
     public static void tearDown () {
         driver.quit();
-    }
+    }*/
 
 }
